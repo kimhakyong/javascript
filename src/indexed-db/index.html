@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Indexed DB</title>
+</head>
+<body>
+<script>
+  let openRequest = indexedDB.open("first-db", 1)
+
+  openRequest.onupgradeneeded = function() {
+    console.log("onupgradeneeded")
+  }
+
+  openRequest.onerror = function() {
+    console.log("onerror")
+  }
+
+  openRequest.onsuccess = function() {
+    console.log("onsuccess")
+    let db = openRequest.result
+  }
+
+</script>
+</body>
+</html>
